@@ -1,44 +1,31 @@
 <template>
-  <div :style="{ 'backgroundImage': `url(${require('@/static/image/logo-bg.png')})`}" class="cursos">
+  <div :style="{ 'backgroundImage': `url(${require('@/static/image/logo-bg.png')})`}" class="cursos-online">
     <section class="hero">
       <span class="subtitle">Alcance o próximo level</span>
       <h3 class="pretitle">Cursos</h3>
       <h1 class="title">Online</h1>
     </section>
 
-    <section class="cursos-list">
-      <div v-for="(curso, index) in cursos" class="curso" :key="index">
-        <div class="img-wrapper">
-          <img class="img" :src="require(`@/static/image/cursos/${curso.img}`)" :alt="curso.title">
-        </div>
+    <TwoLines class="twolines" />
 
-        <nuxt-link :to="'/cursos-online/' + curso.slug" class="description">
-          <h4 class="category">{{ curso.category }}</h4>
-          <h2 class="title">{{ curso.titulo }}</h2>
-          <span class="date">{{ curso.date }}</span>
-        </nuxt-link>
-
-      </div>
+    <section class="warning">
+      <h1 class="warning-title">Em breve</h1>
     </section>
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex"
-
 export default {
-  name: 'Cursos',
-  head: {
-    title: 'Cursos online | Plenitude Consultoria'
-  },
-  computed: {
-    ...mapGetters(["cursos"])
+  head() {
+    return {
+      title: 'Cursos online | Plenitude Consultoria'
+    }
   }
 };
 </script>
 
 <style lang="scss">
-.cursos {
+.cursos-online {
   background-position: -10% 2%;
   background-repeat: no-repeat;
 
@@ -46,9 +33,9 @@ export default {
     background-position: -50% 2%;
   }
 
-  @include max('phablet') {
+  @include max('phone') {
     background-position: 150% 2%;
-  }
+    }
 
   .hero {
     min-height: 90vh;
@@ -67,8 +54,9 @@ export default {
       display: flex;
       align-items: center;
       opacity: .7;
+      text-align: center;
 
-      @include max('phablet') {
+      @include max('phone') {
         font-size: 0.7rem;
       }
 
@@ -80,7 +68,7 @@ export default {
         background: #FFF;
         margin: 0 20px;
 
-        @include max('phablet') {
+        @include max('phone') {
           margin: 0 5px;
         }
       }
@@ -93,14 +81,9 @@ export default {
       letter-spacing: 45px;
       transform: translate3d(22.5px, 0, 0);
 
-      @include max('tablet-wide') {
+      @include max('tablet') {
         transform: translate3d(12.5px, 0, 0);
         letter-spacing: 25px;
-      }
-
-      @include max('tablet') {
-        transform: translate3d(7.5px, 0, 0);
-        letter-spacing: 15px;
       }
 
       @include max('phone') {
@@ -115,13 +98,6 @@ export default {
       @include p-type(5rem, 1, 'bold', #FFF);
       text-transform: uppercase;
       letter-spacing: 25px;
-
-      @include max('tablet-wide') {
-        padding-top: 15px;
-        font-size: 3rem;
-        letter-spacing: 15px;
-        text-align: center;
-      }
 
       @include max('tablet') {
         padding-top: 15px;
@@ -139,109 +115,45 @@ export default {
     }
   }
 
-  .cursos-list {
+  .twolines {
     width: 100%;
-    padding: 150px;
+    justify-content: center;
+  }
+
+  .warning {
+    width: 100%;
+    padding: 150px 15vw 100px 15vw;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
 
-    @include max('tablet-wide') {
-      padding: 0 5vw;
+    @include max('tablet') {
+      padding: 150px 3vw 0 3vw;
     }
 
-    .curso {
-      width: 50%;
-      padding: 0 3%;
+    &-title {
+      @include p-type('giant', 1, 'bold', #FFF);
+      text-transform: uppercase;
+      border: 10px solid #FFF;
+      padding: 50px 100px;
+      text-align: center;
 
       @include max('tablet') {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
+        border: 5px solid #FFF;
+        font-size: 3rem;
+        padding: 5vw 10vw;
       }
+    }
 
-      & + .curso {
-        @include max('tablet') {
-          margin-top: 50px;
-        }
-      }
+    &-subtitle {
+      @include p-type('mid', 1.2, 'semibold', #FFF);
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      padding-top: 30px;
+      text-align: center;
 
-      .img {
-        display: flex;
-        align-content: center;
-        transform: translate3d(35px, 35px, 0);
-        filter: brightness(80%);
-        transition: all .2s ease;
-
-        @include max('tablet') {
-          transform: translate3d(0, 0, 0);
-        }
-
-        &:hover {
-          filter: brightness(100%);
-        }
-
-        &-wrapper {
-          border: 7px solid $p-color;
-          transform: translate3d(-35px, -35px, 0);
-
-          @include max('tablet') {
-            border: none;
-            transform: translate3d(0, 0, 0);
-          }
-        }
-      }
-
-      &:nth-child(2n) {
-        align-self: flex-end;
-
-        @include max('tablet') {
-          align-self: center;
-        }
-      }
-
-      .description {
-        padding: 0 20px;
-        transform: translate3d(0, -40px, 0);
-        display: flex;
-        flex-direction: column;
-
-        .category {
-          display: flex;
-          align-items: center;
-          @include p-type('small', 1.2, 'reg', #FFF);
-          padding-bottom: 5px;
-
-          &::before {
-            content: '';
-            display: block;
-            width: 70px;
-            height: 4px;
-            background: $p-color;
-            margin-right: 10px;
-          }
-        }
-
-        .title {
-          @include p-type(2rem, 1.2, 'semibold', #FFF);
-          text-transform: uppercase;
-          padding-bottom: 5px;
-
-          @include max('tablet-wide') {
-            font-size: 1.2rem;
-          }
-
-          @include max('tablet') {
-            font-size: 1.4rem;
-          }
-        }
-
-        .date {
-          // align-self: flex-end;
-          @include p-type('normal', 1.2, 'semibold', $p-color);
-          letter-spacing: 1px;
-        }
+      @include max('phone') {
+        font-size: 1rem;
       }
     }
   }

@@ -25,8 +25,9 @@ export default {
   box-sizing: border-box;
 
   @include max('phone') {
-    padding: 20px 5vw 0 5vw;
-  position: fixed;
+    padding: 15px 5vw 0 5vw;
+    position: fixed;
+    height: 60px;
   }
 
   .logo {
@@ -36,7 +37,7 @@ export default {
 
     @include max('phone') {
       grid-column: 1 / 2;
-      width: 150px;
+      width: 120px;
     }
   }
   .menu {

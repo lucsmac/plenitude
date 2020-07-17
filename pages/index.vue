@@ -79,7 +79,7 @@ export default {
 </script>
 
 <style lang="scss">
-
+.home {
   .hero {
     width: 100%;
     height: 100vh;
@@ -204,7 +204,7 @@ export default {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
 
-      @include max('phablet') {
+      @include max('tablet-wide') {
         grid-template-columns: 1fr;
       }
 
@@ -214,7 +214,7 @@ export default {
         align-items: center;
 
         & + .curso {
-          @include max('phablet') {
+          @include max('tablet-wide') {
             margin-top: 75px;
           }
         }
@@ -447,4 +447,5 @@ export default {
       }
     }
   }
+}
 </style>

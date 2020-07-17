@@ -47,7 +47,8 @@ export default {
       transition: .15s all ease-in-out;
 
       @include max('phone') {
-        padding: 7.5px 15px;
+        padding: 12.5px 15px;
+        font-size: 1.1rem;
       }
 
       &:hover {
