@@ -2,44 +2,43 @@
   <div class="curso">
     <section class="hero">
       <span class="subtitle">{{ curso.category }}</span>
-      <h1 class="title">{{ curso.title }}</h1>
+      <h1 class="title">{{ curso.titulo }}</h1>
       <nuxt-link to="/cursos" class="back">&larr; Voltar</nuxt-link>
     </section>
 
     <TwoLines class="twolines" />
 
     <section class="content">
-      <img class="img" :src="require(`@/static/image/${curso.img}`)" :alt="curso.title">
+      <img class="img" :src="require(`@/static/image/cursos/${curso.img}`)" :alt="curso.titulo">
       <div class="description">
-        <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas nunc eu consequat tincidunt. Maecenas eget dignissim diam. Duis blandit volutpat faucibus. Ut blandit placerat velit quis mattis. Sed eleifend ipsum vel scelerisque bibendum. In eget sem convallis, ultrices enim quis, tempor nunc. Nullam id dolor elit. In fringilla diam nisl, vel viverra justo blandit sed. Nunc sit amet ex leo. Donec a tincidunt massa, vel ornare orci. Fusce semper lectus elementum accumsan iaculis. Nunc felis leo, efficitur ac ultricies imperdiet, iaculis quis justo. Morbi bibendum ornare nibh, eu volutpat nunc sodales a.</p>
-        <p class="paragraph">Aenean eu dolor facilisis, sodales dui id, luctus libero. Sed ac facilisis est. Ut sit amet neque ut odio tincidunt dapibus. Proin eu ante vulputate, imperdiet sapien nec, venenatis turpis. Donec maximus vel nisl a vestibulum. Proin at quam mauris. Maecenas non posuere lorem, ut venenatis libero. In ac velit aliquam, feugiat velit ac, fringilla ipsum. In tincidunt sodales dignissim. Sed et nunc eu sapien viverra lacinia vitae id massa.</p>
+        <p v-for="(paragraph, index) in curso.description" :key="index" class="paragraph">{{ paragraph }}</p>
       </div>
       <div class="speaker">
         <div class="speaker-img-wrapper">
-          <img class="speaker-img" :src="require('@/static/image/rafael-mendes.png')" :alt="curso.title">
+          <img class="speaker-img" :src="require(`@/static/image/${curso.palestranteImg}`)" :alt="curso.palestrante">
         </div>
 
         <div class="speaker-text">
-          <h3 class="speaker-name">Rafael Mendes</h3>
+          <h3 class="speaker-name">{{ curso.palestrante }}</h3>
           <h2 class="speaker-title">Palestrante</h2>
-          <p class="speaker-description">Aenean eu dolor facilisis, sodales dui id, luctus libero. Sed ac facilisis est. Ut sit amet neque ut odio tincidunt dapibus. Proin eu ante vulputate, imperdiet sapien nec, venenatis turpis. Donec maximus vel nisl a vestibulum</p>
+          <p class="speaker-description">{{ curso.palestranteDescricao }}</p>
         </div>
       </div>
 
       <div class="local">
         <div class="local-info">
           <span class="info-display">Localização</span>
-          <p class="info-item">Hotel</p>
-          <p class="info-item">Rua</p>
-          <p class="info-item">Bairro</p>
-          <p class="info-item">Cidade - UF</p>
+          <p class="info-item">{{ curso.localizacao.hotel }}</p>
+          <p class="info-item">{{ curso.localizacao.rua }}</p>
+          <p class="info-item">{{ curso.localizacao.bairro }}</p>
+          <p class="info-item">{{ curso.localizacao.cidade }} - {{ curso.localizacao.uf }}</p>
         </div>
         <div class="map"></div>
       </div>
 
       <div class="value-wrapper">
         <span class="value-display">Valor</span>
-        <span class="value">{{formatedValue}}</span>
+        <span class="value">{{ formatedValue }}</span>
       </div>
 
       <a class="register-btn" href="#">Cadastre-se agora mesmo</a>
@@ -50,33 +49,21 @@
 </template>
 
 <script>
+
 export default {
   name: 'Curso',
   head() {
     return {
-      title: `${this.curso.title} | Plenitude Consultoria`
+      title: `${this.curso.titulo} | Plenitude Consultoria`
     }
   },
-  data() {
-    return {
-      curso:
-        {
-          img: 'cursos.jpg',
-          title: 'Biomecânica aplicada ao treinamento de força e lesões',
-          category: 'Anatomia',
-          date: '01/04/2020',
-          value: 149,
-        },
-    };
-  },
-  methods: {
-    getImg(urlImg) {
-      return urlImg;
-    },
-  },
   computed: {
+    ...mapGetters(["umCurso"]),
+    curso() {
+      return this.umCurso(this.$route.params.slug)
+    },
     formatedValue() {
-      return Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(this.curso.value);
+      return Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(this.curso.valor);
     },
   },
 };
@@ -85,7 +72,6 @@ export default {
 <style lang="scss">
 .curso {
   .hero {
-    width: 100vw;
     padding: 200px 15vw 150px 15vw;
     display: flex;
     flex-direction: column;

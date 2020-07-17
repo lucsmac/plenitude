@@ -3,18 +3,18 @@
     <section class="hero">
       <span class="subtitle">Alcance o próximo level</span>
       <h3 class="pretitle">Cursos</h3>
-      <h1 class="title">Presenciais</h1>
+      <h1 class="title">Online</h1>
     </section>
 
     <section class="cursos-list">
       <div v-for="(curso, index) in cursos" class="curso" :key="index">
         <div class="img-wrapper">
-          <img class="img" :src="require(`@/static/image/${curso.img}.jpg`)" :alt="curso.title">
+          <img class="img" :src="require(`@/static/image/cursos/${curso.img}`)" :alt="curso.title">
         </div>
 
-        <nuxt-link :to="'/cursos/' + curso.id" class="description">
+        <nuxt-link :to="'/cursos-online/' + curso.slug" class="description">
           <h4 class="category">{{ curso.category }}</h4>
-          <h2 class="title">{{ curso.title }}</h2>
+          <h2 class="title">{{ curso.titulo }}</h2>
           <span class="date">{{ curso.date }}</span>
         </nuxt-link>
 
@@ -27,47 +27,11 @@
 export default {
   name: 'Cursos',
   head: {
-    title: 'Cursos presenciais | Plenitude Consultoria'
+    title: 'Cursos online | Plenitude Consultoria'
   },
-  data() {
-    return {
-      cursos: [
-        {
-          img: 'cursos',
-          title: 'Biomecânica aplicada ao treinamento de força e lesões',
-          category: 'Anatomia',
-          date: '01/04/2020',
-          id: 1,
-        },
-        {
-          img: 'cursos',
-          title: 'Biomecânica e cinesiologia aplicada à musculação',
-          category: 'Anatomia',
-          date: '01/05/2020',
-          id: 2,
-        },
-        {
-          img: 'cursos',
-          title: 'Meeting de treinamento para grupos especiais',
-          category: 'Anatomia',
-          date: '01/06/2020',
-          id: 3,
-        },
-        {
-          img: 'cursos',
-          title: 'Treinamento de força para gestantes',
-          category: 'Anatomia',
-          date: '01/07/2020',
-          id: 4,
-        },
-      ],
-    };
-  },
-  methods: {
-    getImg(urlImg) {
-      return urlImg;
-    },
-  },
+  computed: {
+    ...mapGetters(["cursos"])
+  }
 };
 </script>
 

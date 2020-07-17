@@ -1,3 +1,12 @@
+import data from './static/api/cursos-data.json'
+
+let dynamicRoutes = () => {
+ return new Promise(resolve => {
+   const cursosPresenciais = data.map(el => `cursos/${el.slug}`)
+   const cursosOnline = data.map(el => `cursos-online/${el.slug}`)
+   resolve(cursosPresenciais.concat(cursosOnline))
+ })
+}
 
 export default {
   /*
@@ -76,5 +85,9 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+  },
+
+  generate: {
+    routes: dynamicRoutes
   }
 }

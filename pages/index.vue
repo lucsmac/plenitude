@@ -14,21 +14,21 @@
       <div class="cursos">
 
         <div class="curso">
-          <div class=curso-img><img src="~/static/image/cursos/formacao-grupos-especiais-gestantes-natal.jpg"></div>
+          <nuxt-link to="/cursos" class=curso-img><img src="~/static/image/cursos/formacao-grupos-especiais-gestantes-natal.jpg"></nuxt-link>
           <h2 class="curso-title">Presenciais</h2>
           <p class="curso-description">As maiores referências do Brasil, aqui na sua cidade! Venha participar dos nossos cursos presenciais e aprenda com as maiores sumidades da educação física, fisioterapia e nutrição.</p>
           <nuxt-link to="/cursos" class="curso-link">Ver mais</nuxt-link>
         </div>
 
         <div class="curso">
-          <div class=curso-img><img src="~/static/image/cursos/online-course-2.jpg"></div>
+          <nuxt-link to="/cursos-online" class=curso-img><img src="~/static/image/cursos/online-course-2.jpg"></nuxt-link>
           <h2 class="curso-title">Online</h2>
           <p class="curso-description">As maiores referências do Brasil, aqui na sua cidade! Venha participar dos nossos cursos presenciais e aprenda com as maiores sumidades da educação física, fisioterapia e nutrição.</p>
-          <nuxt-link to="/cursos" class="curso-link">Ver mais</nuxt-link>
+          <nuxt-link to="/cursos-online" class="curso-link">Ver mais</nuxt-link>
         </div>
 
         <div class="curso">
-          <div class=curso-img><img src="~/static/image/cursos/pos-graduacao.jpg"></div>
+          <nuxt-link to="/pos-graduacao" class=curso-img><img src="~/static/image/cursos/pos-graduacao.jpg"></nuxt-link>
           <h2 class="curso-title">Pós-graduação</h2>
           <p class="curso-description">Um instituto de ensino que busca incessantemente desenvolver o potencial máximo, muitas vezes adormecido dos alunos. Em parceria com grandes nomes da educação nacional, buscamos a sincronia perfeita entre teoria e prática, valorizando o currículo do estudante.</p>
           <nuxt-link to="/pos-graduacao" class="curso-link">Ver mais</nuxt-link>

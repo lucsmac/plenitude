@@ -18,16 +18,15 @@
     </section>
 
     <section class="gallery">
-      <img class="photo" src="@/static/image/rafael-mendes.png" alt="Rafael Mendes">
-      <img class="photo" src="@/static/image/rafael-mendes.png" alt="Rafael Mendes">
-      <img class="photo" src="@/static/image/rafael-mendes.png" alt="Rafael Mendes">
-      <img class="photo" src="@/static/image/rafael-mendes.png" alt="Rafael Mendes">
-      <img class="photo" src="@/static/image/rafael-mendes.png" alt="Rafael Mendes">
-      <img class="photo" src="@/static/image/rafael-mendes.png" alt="Rafael Mendes">
-      <img class="photo" src="@/static/image/rafael-mendes.png" alt="Rafael Mendes">
-      <img class="photo" src="@/static/image/rafael-mendes.png" alt="Rafael Mendes">
-      <img class="photo" src="@/static/image/rafael-mendes.png" alt="Rafael Mendes">
-      <img class="photo" src="@/static/image/rafael-mendes.png" alt="Rafael Mendes">
+      <img class="photo" src="@/static/image/cursos/leonidas-biomecanica-2.jpg" alt="Biomecânica - Professor Leônidas">
+      <img class="photo" src="@/static/image/cursos/caue-sem-equipamento.jpg" alt="Sem equipamentos - Professor Cauê">
+      <img class="photo" src="@/static/image/cursos/caue-sem-equipamento-2.jpg" alt="Sem equipamentos - Professor Cauê">
+      <img class="photo" src="@/static/image/cursos/firmino-gestante-natal.jpg" alt="Formação gestantes - Professor Firmino">
+      <img class="photo" src="@/static/image/cursos/leonidas-biomecanica-4.jpg" alt="Biomecânica - Professor Leônidas">
+      <img class="photo" src="@/static/image/cursos/leonidas-biomecanica-1.jpg" alt="Biomecânica - Professor Leônidas">
+      <img class="photo" src="@/static/image/cursos/zorzi-biomecanica-4.jpg" alt="Biomecânica - Professor Zorzi">
+      <img class="photo" src="@/static/image/cursos/zorzi-biomecanica-2.jpg" alt="Biomecânica Professor Zorzi">
+      <img class="photo" src="@/static/image/cursos/alunos.jpg" alt="Alunos da Plenitude">
     </section>
   </div>
 </template>
@@ -246,7 +245,7 @@ export default {
 
   .gallery {
     width: 100%;
-    padding: 0 15vw 500px 15vw;
+    padding: 0 15vw 50px 15vw;
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-items: center;
