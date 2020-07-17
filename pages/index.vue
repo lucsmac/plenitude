@@ -21,7 +21,7 @@
         </div>
 
         <div class="curso">
-          <nuxt-link to="/cursos-online" class=curso-img><img src="~/static/image/cursos/online-course-2.jpg"></nuxt-link>
+          <nuxt-link to="/cursos-online" class=curso-img><img src="~/static/image/cursos/online-course.jpg"></nuxt-link>
           <h2 class="curso-title">Online</h2>
           <p class="curso-description">As maiores referências do Brasil, aqui na sua cidade! Venha participar dos nossos cursos presenciais e aprenda com as maiores sumidades da educação física, fisioterapia e nutrição.</p>
           <nuxt-link to="/cursos-online" class="curso-link">Ver mais</nuxt-link>
