@@ -28,7 +28,10 @@ export default {
 .twolines {
   width: 100%;
   justify-content: center;
-  transform: translate3d(0, 50%, 0);
+
+  &-footer {
+    transform: translate3d(0, 50%, 0);
+  }
 }
 
 .footer {
